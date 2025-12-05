@@ -1,0 +1,174 @@
+---
+title: "GESTIÓN DEL RIESGO Y COBRANZA MEDIANTE MODELOS PREDICTIVOS EN CIENCIA DE DATOS EN EDUCACIÓN SUPERIOR"
+subtitle: "Fase 1 – Entendimiento del Negocio"
+author: "Desarrollado por: Paula Andrea Tovar y Edgar Esteban Grajales C."
+output: github_document
+---
+
+# 1. Entendimiento del Negocio
+
+## 1.1. Contexto institucional y relevancia del problema
+
+La Universidad Autónoma de Occidente (UAO), ubicada en Cali (Colombia), cuenta con un sistema interno de financiación estudiantil que ha permitido, durante más de dos décadas, facilitar el acceso, continuidad y permanencia académica de miles de estudiantes. A diferencia de mecanismos externos como el ICETEX, este modelo opera bajo un esquema de crédito semestral de corto plazo, renovado según el comportamiento de pago del estudiante.
+
+La UAO hasta agosto del 2025 ha administrado:
+
+- **109.000 créditos educativos** desde 2003.
+- **26.000 estudiantes beneficiados** desde 2003
+
+Esta información representa un activo estratégico que, si se analiza correctamente, puede mejorar significativamente la gestión del riesgo crediticio y las decisiones relacionadas con la permanencia estudiantil. Sin embargo, los procesos actuales de análisis y seguimiento se basan en procedimientos manuales y administrativos, sin herramientas predictivas que permitan anticipar oportunamente los casos con mayor probabilidad de incumplimiento.
+
+Durante la pandemia de COVID-19, la necesidad de flexibilizar las condiciones de pago incrementó la heterogeneidad de la cartera, haciendo aún más complejo prever el riesgo. El incumplimiento no solo afecta la sostenibilidad financiera: también puede comprometer la continuidad académica del estudiante, generando impacto en indicadores institucionales como retención y graduación.
+
+Por estas razones, desarrollar un modelo predictivo basado en técnicas de ciencia de datos resulta clave para fortalecer la toma de decisiones y apoyar la misión institucional.
+
+---
+
+## 1.2. Definición operativa de “incumplimiento”
+
+En este proyecto, se define **incumplimiento** como:
+
+> **La existencia de una mora superior a 30 días en cualquier cuota asociada al crédito educativo de un estudiante.**
+
+Esta definición se fundamenta en:
+
+### **Criterio institucional**
+La política interna establece que un estudiante solo puede renovar su crédito semestral si está al día con los pagos del periodo anterior. Una mora > 30 días activa procesos de cobranza y bloquea la renovación.
+
+### **Criterio técnico**
+En la tabla *Cartera Depurada*, la variable `dias` registra:
+
+- dias < 0 → cuotas futuras  
+- 0 ≤ dias ≤ 30 → al día o mora leve  
+- dias > 30 → mora significativa  
+
+### **Criterio de modelado**
+Esto permite construir la variable objetivo:
+
+- **y = 1 → incumplimiento (mora > 30 días)**
+- **y = 0 → cumplimiento**
+
+Una variable binaria facilita el uso de algoritmos supervisados como regresión logística, árboles de decisión o Random Forest, así como métricas como recall, F1-score, AUC-ROC y AUC-PR.
+
+---
+
+## 1.3. Unidad de análisis
+
+La unidad de análisis seleccionada para este proyecto es **el estudiante**, identificado por `id_estudiante`.
+
+Aunque un estudiante puede tener múltiples créditos o notas débito asociadas, la toma de decisiones institucional (renovación, seguimiento y acompañamiento) se realiza sobre la persona. Por ello, consolidaremos la información a nivel de estudiante, integrando elementos como:
+
+- comportamiento histórico de pago  
+- número de créditos tomados  
+- moras previas  
+- montos financiados  
+- características socioeconómicas  
+- comportamiento académico relevante (si aplica)
+
+Esta decisión:
+
+1. simplifica el modelado,  
+2. permite capturar el riesgo general del estudiante,  
+3. evita duplicidades al predecir por cuota o por crédito,  
+4. refleja la unidad de decisión del área financiera.
+
+---
+
+## 1.4. Reglas de negocio y coherencias operativas
+
+Antes del modelado, es necesario garantizar que los datos cumplan reglas de negocio críticas.
+
+### **1.4.1. Renovación condicionada**
+Un estudiante no puede renovar su crédito si presenta mora en el semestre anterior.
+
+### **1.4.2. Reglas financieras**
+Validaciones por realizar:
+
+- `saldo_nota_debito <= valor_nota_debito`
+- `valor_pagado_nota_debito <= valor_nota_debito`
+- `percent_recaudo = (valor_pagado_nota_debito / valor_nota_debito) * 100`
+
+### **1.4.3. Reglas temporales**
+Las fechas deben cumplir:
+
+- `fecha_solicitud <= fecha_aprobacion`
+- `fecha_aprobacion <= fecha_vencimiento_ndb`
+- `fecha_pago_nota_debito >= fecha_vencimiento_ndb` (cuando aplica)
+
+### **1.4.4. Clasificación de edades de cartera**
+
+Según el valor de `dias`:
+
+- **Por vencer:** dias < 0  
+- **Al día / mora leve:** 0–30  
+- **Mora temprana:** 31–60  
+- **Mora intermedia:** 61–90  
+- **Mora avanzada:** > 90  
+
+---
+
+## 1.5. Métricas de éxito institucional
+
+El modelo predictivo será útil para la UAO si permite:
+
+### **1.5.1. Reducir la tasa de mora**
+Identificando estudiantes con alto riesgo para intervención temprana.
+
+### **1.5.2. Priorización inteligente de procesos de cobranza**
+El modelo debe mejorar la eficiencia del equipo de Apoyo Financiero.
+
+### **1.5.3. Minimizar falsos positivos**
+Evitar intervenir estudiantes que sí cumplirán, cuidando la experiencia institucional.
+
+### **1.5.4. Balancear precisión y recall**
+El costo de un falso negativo (no detectar un caso riesgoso) es mayor que el de un falso positivo.  
+Por eso, se priorizarán:
+
+- recall  
+- F1-score  
+- AUC-ROC  
+- AUC-PR  
+
+---
+
+## 1.6. Integración de los datasets y llaves de unión
+
+Los datasets utilizados son:
+
+- **Créditos** (información transaccional histórica).  
+- **Cartera Depurada** (estado actual de mora y antigüedad de la deuda).
+
+Llaves principales de enlace:
+
+- `id_estudiante`  
+- `nota_debito`  
+- `no_credito`  
+
+Estrategia de integración:
+
+> **Left join desde Créditos hacia Cartera Depurada**, conservando el historial completo y agregando información de mora cuando aplique.
+
+---
+
+## 1.7. Desbalance de clases y su impacto en el modelado
+
+Los datos muestran un desbalance significativo:
+
+- mayoría de estudiantes en cumplimiento  
+- minoría en incumplimiento (> 30 días de mora)
+
+Causas:
+
+- políticas institucionales flexibles  
+- seguimiento manual relativamente efectivo  
+- baja proporción histórica de moras severas
+
+Implicaciones para el modelado:
+
+- evitar accuracy como métrica principal  
+- utilizar técnicas de balanceo (SMOTE, undersampling)  
+- aplicar validación cruzada estratificada  
+- evaluar F1-score, recall y AUC-PR  
+
+---
+

@@ -1,0 +1,45 @@
+# Archivos de R -------------------------------------------------------
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+
+# Carpetas internas de RStudio ---------------------------------------
+.Rproj.user/
+
+# Outputs temporales --------------------------------------------------
+*.utf8.md
+*.knit.md
+*.html
+*.pdf
+
+# Archivos temporales del sistema ------------------------------------
+.DS_Store
+Thumbs.db
+
+# Archivos de caché ---------------------------------------------------
+cache/
+*_cache/
+*.feather
+*.fst
+
+# Bases de datos muy pesadas -----------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+
+# Archivos de Python (por si usas reticulate) -------------------------
+__pycache__/
+*.pyc
+
+# Archivos intermedios ------------------------------------------------
+*.rds
+*.png
+*.csv
+
+# Carpeta de outputs --------------------------------------------------
+outputs/figuras/*
+outputs/tablas/*
+
+# Excepto si quieres conservar estructura vacía -----------------------
+!outputs/figuras/.gitkeep
+!outputs/tablas/.gitkeep
