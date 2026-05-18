@@ -46,3 +46,6 @@ outputs/tablas/*
 
 # Excepcion: incluir notebook renderizado --------------------------------
 !UAO_Riesgo_Crediticio_CRISP_DM_v15_FINAL2.html
+
+# Exception: HTML con codigo colapsable -----------------------
+!UAO_Riesgo_Crediticio_CRISP_DM_v15_FINAL2_CODIGO_COLAPSABLE.html
