@@ -1,11 +1,22 @@
 ---
 title: "GESTIÓN DEL RIESGO Y COBRANZA MEDIANTE MODELOS PREDICTIVOS EN CIENCIA DE DATOS EN EDUCACIÓN SUPERIOR"
 subtitle: "Fase 1 – Entendimiento del Negocio"
-author: "Desarrollado por: Paula Andrea Tovar y Edgar Esteban Grajales C."
-output: github_document
+author: "Paula Andrea Tovar · Esteban Grajales"
+date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+      side: left
+    number_sections: true
+    theme: readable
+    df_print: paged
 ---
 
-# 1. Entendimiento del Negocio
+# Entendimiento del Negocio
 
 ## 1.1. Contexto institucional y relevancia del problema
 

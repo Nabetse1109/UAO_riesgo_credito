@@ -1,0 +1,176 @@
+---
+title: "GESTIÓN DEL RIESGO Y COBRANZA MEDIANTE MODELOS PREDICTIVOS EN CIENCIA DE DATOS EN EDUCACIÓN SUPERIOR"
+subtitle: "Fase 2 – Entendimiento de los datos"
+author: "Paula Andrea Tovar · Esteban Grajales"
+date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+      side: left
+    number_sections: true
+    theme: readable
+    df_print: paged
+---
+
+# Entendimiento de los datos
+
+Setup y detección automática de carpeta de datos:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+knitr::opts_chunk$set(
+  echo    = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center",
+  out.width = "80%"
+)
+
+# Setup general: paquetes, tema de tablas, etc.
+source(here::here("R", "00_setup_eda.R"))
+
+# Datos procesados
+creditos_raw  <- readRDS(here::here("data", "processed", "creditos_raw.rds"))
+cartera_raw   <- readRDS(here::here("data", "processed", "cartera_raw.rds"))
+base_creditos <- readRDS(here::here("data", "processed", "base_modelo_creditos.rds"))
+
+# Función para incluir figuras guardadas en outputs/figuras
+include_fig <- function(...){
+  ruta <- here::here("outputs", "figuras", ...)
+  knitr::include_graphics(ruta)
+}
+
+# Función genérica para tabla de tipos y faltantes
+tabla_tipos_faltantes <- function(df, nombre_dataset){
+  tibble::tibble(
+    variable      = names(df),
+    tipo          = vapply(df, function(x) class(x)[1], character(1)),
+    n_faltantes   = vapply(df, function(x) sum(is.na(x)), integer(1))
+  ) |>
+    dplyr::mutate(
+      pct_faltantes = round(100 * n_faltantes / nrow(df), 2),
+      dataset       = nombre_dataset,
+      .before = 1
+    )
+}
+
+# Función para resumen numérico (n, media, sd, p25, mediana, p75, min, max)
+resumen_numerico <- function(df, vars, nombre_dataset){
+  df |>
+    dplyr::select(dplyr::all_of(vars)) |>
+    dplyr::summarise(
+      dplyr::across(
+        .cols  = everything(),
+        .fns   = list(
+          n   = ~sum(!is.na(.)),
+          mean= ~mean(., na.rm = TRUE),
+          sd  = ~sd(., na.rm = TRUE),
+          p25 = ~quantile(., 0.25, na.rm = TRUE),
+          p50 = ~median(., na.rm = TRUE),
+          p75 = ~quantile(., 0.75, na.rm = TRUE),
+          min = ~min(., na.rm = TRUE),
+          max = ~max(., na.rm = TRUE)
+        ),
+        .names = "{.col}_{.fn}"
+      )
+    ) |>
+    tidyr::pivot_longer(
+      cols = dplyr::everything(),
+      names_to = c("variable", "estadistico"),
+      names_sep = "_",
+      values_to = "valor"
+    ) |>
+    tidyr::pivot_wider(
+      names_from = estadistico,
+      values_from = valor
+    ) |>
+    dplyr::mutate(dataset = nombre_dataset, .before = 1)
+}
+
+
+```
+
+## Objetivo del EDA
+
+En esta sección se presenta el análisis exploratorio de datos (EDA) del proyecto de riesgo crediticio de los estudiantes de la UAO.
+
+El objetivo principal es:
+
+- Entender la estructura y calidad de la información disponible.
+
+- Describir el comportamiento de las variables claves (demográficas, académicas,
+financieras y de comportamiento).
+
+- Explorar la relación entre estas variables y la variable objetivo
+(incumplimiento del crédito, definido como mora mayor a 30 días).
+
+El EDA se realiza sobre tres fuentes principales:
+
+- creditos_raw: registros históricos de créditos.
+
+- cartera_raw: información de cartera y morosidad asociada.
+
+- base_creditos: base integrada y agregada a nivel de crédito, que será usada
+para el modelado.
+
+
+## Estructura general
+
+```{r}
+
+res_dim <- tibble::tibble(
+dataset = c("creditos_raw", "cartera_raw", "base_creditos"),
+n_filas = c(nrow(creditos_raw), nrow(cartera_raw), nrow(base_creditos)),
+n_columnas = c(ncol(creditos_raw), ncol(cartera_raw), ncol(base_creditos))
+)
+
+formatear_tabla(res_dim, "Dimensiones de las bases principales", n = 3)
+
+
+```
+
+## Diccionario de variables
+
+```{r}
+
+dicc_creditos <- readr::read_csv(here::here("outputs/tablas/diccionario_creditos.csv"), show_col_types = FALSE)
+dicc_cartera  <- readr::read_csv(here::here("outputs/tablas/diccionario_cartera.csv"), show_col_types = FALSE)
+
+formatear_tabla(dicc_creditos, "Diccionario de variables – Créditos", n = nrow(dicc_creditos))
+formatear_tabla(dicc_cartera,  "Diccionario de variables – Cartera",  n = nrow(dicc_cartera))
+
+```
+
+# Calidad y consistencia
+
+## Validaciones de negocio
+
+```{r}
+
+validaciones <- readr::read_csv(here::here("outputs/tablas/02_reporte_validaciones.csv"), show_col_types = FALSE)
+formatear_tabla(validaciones, "Resumen de validaciones de negocio", n = nrow(validaciones))
+
+```
+
+# EDA Univariado
+
+## Variable objetivo
+
+```{r}
+
+dist_obj <- readr::read_csv(here::here("outputs/tablas/03_distribucion_incumplimiento.csv"), show_col_types = FALSE)
+formatear_tabla(dist_obj, "Distribución de la variable objetivo (incumplimiento)", n = 2)
+
+```
+
+
+```{r}
+
+include_fig("evolucion_n_creditos_unicos.png")
+
+
+```
