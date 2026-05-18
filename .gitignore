@@ -43,3 +43,6 @@ outputs/tablas/*
 # Excepto si quieres conservar estructura vacía -----------------------
 !outputs/figuras/.gitkeep
 !outputs/tablas/.gitkeep
+
+# Excepcion: incluir notebook renderizado --------------------------------
+!UAO_Riesgo_Crediticio_CRISP_DM_v15_FINAL2.html
