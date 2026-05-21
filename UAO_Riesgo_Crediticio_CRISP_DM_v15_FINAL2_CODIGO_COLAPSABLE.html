@@ -7794,128 +7794,20 @@ a.anchor-link {
   }
 </style>
 <!-- End of mermaid configuration --><style>
-/* === CÓDIGO COLAPSABLE === */
-details.code-toggle {
-  margin: 0.5em 0;
-  border-left: 3px solid #003366;
-  background: #f8f9fa;
-  border-radius: 4px;
-}
-
-details.code-toggle > summary.code-toggle-summary {
-  cursor: pointer;
-  padding: 6px 12px;
-  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-  font-size: 0.85em;
-  font-weight: 600;
-  color: #003366;
-  background: #e8eef4;
-  border-radius: 3px;
-  user-select: none;
-  list-style: none;
-  outline: none;
-  transition: background 0.15s ease;
-}
-
-details.code-toggle > summary.code-toggle-summary:hover {
-  background: #d4dce8;
-}
-
-details.code-toggle > summary.code-toggle-summary::-webkit-details-marker {
-  display: none;
-}
-
-details.code-toggle[open] > summary.code-toggle-summary {
-  background: #003366;
-  color: white;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-details.code-toggle[open] > summary.code-toggle-summary::before {
-  content: '▾ ';
-}
-
-details.code-toggle:not([open]) > summary.code-toggle-summary::before {
-  content: '▸ ';
-}
-
-details.code-toggle[open] > summary.code-toggle-summary {
-  /* Already styled above */
-}
-
-/* Override the embedded summary text */
-details.code-toggle > summary.code-toggle-summary {
-  position: relative;
-}
-
-/* === BARRA SUPERIOR DE CONTROL GLOBAL === */
-#global-code-toggle-bar {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  background: linear-gradient(90deg, #003366 0%, #00509e 100%);
-  color: white;
-  padding: 10px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-#global-code-toggle-bar .title {
-  font-weight: 600;
-  font-size: 0.95em;
-}
-
-#global-code-toggle-bar .controls {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-#global-code-toggle-bar button {
-  background: white;
-  color: #003366;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.85em;
-  cursor: pointer;
-  transition: background 0.15s ease, transform 0.1s ease;
-  font-family: inherit;
-}
-
-#global-code-toggle-bar button:hover {
-  background: #ffd700;
-  transform: translateY(-1px);
-}
-
-#global-code-toggle-bar button:active {
-  transform: translateY(0);
-}
-
-/* Avoid double rendering when printing */
-@media print {
-  #global-code-toggle-bar { display: none; }
-  details.code-toggle > summary.code-toggle-summary { display: none; }
-  details.code-toggle { border-left: none; background: transparent; }
-  details.code-toggle:not([open]) > .jp-Cell-inputWrapper { display: block !important; }
-}
+details.code-toggle { margin: 0.5em 0; border-left: 3px solid #003366; background: #f8f9fa; border-radius: 4px; }
+details.code-toggle > summary.code-toggle-summary { cursor: pointer; padding: 6px 12px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 0.85em; font-weight: 600; color: #003366; background: #e8eef4; border-radius: 3px; user-select: none; list-style: none; outline: none; }
+details.code-toggle > summary.code-toggle-summary:hover { background: #d4dce8; }
+details.code-toggle > summary.code-toggle-summary::-webkit-details-marker { display: none; }
+details.code-toggle[open] > summary.code-toggle-summary { background: #003366; color: white; }
+details.code-toggle[open] > summary.code-toggle-summary::before { content: 'v '; }
+details.code-toggle:not([open]) > summary.code-toggle-summary::before { content: '> '; }
+#global-code-toggle-bar { position: sticky; top: 0; z-index: 9999; background: linear-gradient(90deg, #003366 0%, #00509e 100%); color: white; padding: 10px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); font-family: 'Segoe UI', Arial, sans-serif; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+#global-code-toggle-bar .title { font-weight: 600; font-size: 0.95em; }
+#global-code-toggle-bar button { background: white; color: #003366; border: none; padding: 6px 14px; border-radius: 4px; font-weight: 600; font-size: 0.85em; cursor: pointer; font-family: inherit; }
+#global-code-toggle-bar button:hover { background: #ffd700; }
+@media print { #global-code-toggle-bar { display: none; } details.code-toggle > summary.code-toggle-summary { display: none; } details.code-toggle:not([open]) > .jp-Cell-inputWrapper { display: block !important; } }
 </style></head>
-<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div id="global-code-toggle-bar">
-<div class="title">Notebook con código colapsable — Click en cada celda para revisar el código</div>
-<div class="controls">
-<button onclick="document.querySelectorAll('details.code-toggle').forEach(d =&gt; d.open = true);">▾ Expandir todo el código</button>
-<button onclick="document.querySelectorAll('details.code-toggle').forEach(d =&gt; d.open = false);">▸ Colapsar todo</button>
-</div>
-</div>
-
+<body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light"><div id="global-code-toggle-bar"><div class="title">Notebook con codigo colapsable - Click en cada celda para ver el codigo</div><div class="controls"><button onclick="document.querySelectorAll('details.code-toggle').forEach(d=&gt;d.open=true);">Expandir todo</button> <button onclick="document.querySelectorAll('details.code-toggle').forEach(d=&gt;d.open=false);">Colapsar todo</button></div></div>
 <main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=03136ef6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7977,7 +7869,7 @@ Pontificia Universidad Javeriana Cali</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=33ea205a"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 1)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=33ea205a"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 1)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -8020,7 +7912,7 @@ Hint: It looks like a path. File '\n' does not exist.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=911331d8"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 2)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=911331d8"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 2)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -8084,7 +7976,7 @@ Hint: It looks like a path. File '\n' does not exist.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6f18b46a"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 3)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6f18b46a"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 3)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -8283,7 +8175,7 @@ Hint: It looks like a path. File '\n' does not exist.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8dc5e48f"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 4)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8dc5e48f"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 4)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -8356,7 +8248,7 @@ Hint: It looks like a path. File '\n' does not exist.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=01ac2a3f"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 5)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=01ac2a3f"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 5)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -8646,7 +8538,7 @@ Hint: It looks like a path. File '\n' does not exist.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=abe9d722"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 6)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=abe9d722"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 6)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -8887,7 +8779,7 @@ Hint: It looks like a path. File '\n' does not exist.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f0abae94"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 7)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f0abae94"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 7)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -8997,7 +8889,7 @@ Hint: It looks like a path. File '\n' does not exist.
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=174ab62a"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 8)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=174ab62a"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 8)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -9102,7 +8994,7 @@ No_Creditos:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d597d446"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 9)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d597d446"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 9)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -9309,7 +9201,7 @@ No_Creditos:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=eb3beb30"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 10)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=eb3beb30"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 10)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -9539,7 +9431,7 @@ No_Creditos:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0979f1d3"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 11)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0979f1d3"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 11)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -9754,7 +9646,7 @@ CONCLUSIÓN DE VALIDACIÓN DEL TARGET
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=35c3242d"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 12)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=35c3242d"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 12)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -9815,7 +9707,7 @@ CONCLUSIÓN DE VALIDACIÓN DEL TARGET
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9183a9cc"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 13)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9183a9cc"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 13)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10013,7 +9905,7 @@ CONCLUSIÓN DE VALIDACIÓN DEL TARGET
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3110c3f3"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 14)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3110c3f3"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 14)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10085,7 +9977,7 @@ CONCLUSIÓN DE VALIDACIÓN DEL TARGET
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7b7d6873"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 15)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7b7d6873"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 15)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10145,7 +10037,7 @@ DOCTORADO             342
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dcff89b7"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 16)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dcff89b7"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 16)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10199,7 +10091,7 @@ Variables NO disponibles en los datos (confirmado):
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=382ebf1f"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 17)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=382ebf1f"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 17)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10270,7 +10162,7 @@ Variables NO disponibles en los datos (confirmado):
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dbbfb102"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 18)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dbbfb102"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 18)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10419,7 +10311,7 @@ Tasa de mora por año (después del filtro de maduración):
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=628d9f5c"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 19)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=628d9f5c"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 19)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10480,7 +10372,7 @@ Tasa de mora por año (sin 2025):
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=90da1e65"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 20)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=90da1e65"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 20)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10566,7 +10458,7 @@ DISTRIBUCIONES UNIVARIADAS - POBLACIÓN COMPLETA df1 (n=191,130)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=08daa816"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 21)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=08daa816"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 21)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10625,7 +10517,7 @@ DISTRIBUCIONES UNIVARIADAS - POBLACIÓN COMPLETA df1 (n=191,130)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7085de7d"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 22)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7085de7d"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 22)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10747,7 +10639,7 @@ DISTRIBUCIONES UNIVARIADAS - POBLACIÓN COMPLETA df1 (n=191,130)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=253ec39f"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 23)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=253ec39f"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 23)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10838,7 +10730,7 @@ DISTRIBUCIONES UNIVARIADAS - POBLACIÓN COMPLETA df1 (n=191,130)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=201e708b"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 24)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=201e708b"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 24)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -10992,7 +10884,7 @@ Diagnóstico de drift temporal:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=03d020c3"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 25)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=03d020c3"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 25)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11149,7 +11041,7 @@ Diagnóstico de drift temporal:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=982d0298"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 26)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=982d0298"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 26)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11560,7 +11452,7 @@ Diagnóstico de drift temporal:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d37fad43"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 27)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d37fad43"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 27)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11660,7 +11552,7 @@ Diagnóstico de drift temporal:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e2692559"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 28)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e2692559"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 28)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11695,7 +11587,7 @@ Duplicados por Nota_debito: 0
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=31d424bc"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 29)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=31d424bc"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 29)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11744,7 +11636,7 @@ Duplicados por Nota_debito: 0
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=516af692"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 30)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=516af692"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 30)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11855,7 +11747,7 @@ Duplicados por Nota_debito: 0
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=12d2c1af"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 31)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=12d2c1af"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 31)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11904,7 +11796,7 @@ Duplicados por Nota_debito: 0
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6c4736b7"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 32)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6c4736b7"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 32)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -11970,7 +11862,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7cf3edbc"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 33)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7cf3edbc"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 33)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12053,7 +11945,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a4469c95"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 34)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a4469c95"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 34)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12182,7 +12074,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a6ff59b3"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 35)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a6ff59b3"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 35)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12350,7 +12242,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ec9c9810"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 36)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ec9c9810"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 36)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12466,7 +12358,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=02ce3a7c"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 37)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=02ce3a7c"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 37)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12549,7 +12441,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=913cdffb"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 38)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=913cdffb"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 38)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12616,7 +12508,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7acfec68"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 39)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7acfec68"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 39)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12669,7 +12561,7 @@ Total nulos restantes: 9230
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4f392d7b"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 40)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4f392d7b"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 40)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -12828,7 +12720,7 @@ Estrato_Socioeconomico 600.9328   5   0.0000
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d3c574a7"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 41)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d3c574a7"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 41)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13161,7 +13053,7 @@ Poder predictivo de features históricas:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7084130c"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 42)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7084130c"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 42)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13308,7 +13200,7 @@ Features prospectivas:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d5f283bb"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 43)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d5f283bb"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 43)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13347,7 +13239,7 @@ Features prospectivas:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ca4299bb"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 44)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ca4299bb"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 44)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13429,7 +13321,7 @@ Features prospectivas:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0dd32835"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 45)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0dd32835"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 45)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13474,7 +13366,7 @@ Features prospectivas:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8edf2b44"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 46)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8edf2b44"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 46)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13578,7 +13470,7 @@ Features prospectivas:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fbbcc43f"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 47)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fbbcc43f"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 47)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13692,7 +13584,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c8c9c372"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 48)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c8c9c372"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 48)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13817,7 +13709,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8de19706"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 49)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8de19706"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 49)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -13949,7 +13841,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ccbe2fbf"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 50)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ccbe2fbf"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 50)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14049,7 +13941,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cc276c11"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 51)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cc276c11"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 51)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14154,7 +14046,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=458fc310"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 52)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=458fc310"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 52)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14284,7 +14176,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e77cb0ff"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 53)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e77cb0ff"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 53)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14347,7 +14239,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=824372d3"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 54)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=824372d3"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 54)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14440,7 +14332,7 @@ Modelo                     Accuracy  Precision   Recall       F1  AUC-ROC
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=85d50c5a"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 55)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=85d50c5a"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 55)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14606,7 +14498,7 @@ Interpretacion:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4ec4b155"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 56)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4ec4b155"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 56)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14763,7 +14655,7 @@ Ranking de importancia:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6a76717b"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 57)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6a76717b"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 57)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -14847,7 +14739,7 @@ Ranking de importancia:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3cbb7c16"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 58)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3cbb7c16"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 58)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15053,7 +14945,7 @@ Variable                          Alto Riesgo    Bajo Riesgo   Diferencia
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=17c0a8a1"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 59)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=17c0a8a1"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 59)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15146,7 +15038,7 @@ Test  OOT: 14,206 (&gt;2023) | Mora: 10.9%
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b7a9dae1"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 60)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b7a9dae1"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 60)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15336,7 +15228,7 @@ Umbral operativo: 0.655 (criterio Youden's J)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=26910836"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 61)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=26910836"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 61)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15535,7 +15427,7 @@ Lectura:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e5414cee"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 62)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e5414cee"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 62)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15636,7 +15528,7 @@ K elegido (silhouette + criterio operativo): 2 clusters
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=83c42c0b"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 63)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=83c42c0b"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 63)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15737,7 +15629,7 @@ K elegido (silhouette + criterio operativo): 2 clusters
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=16e56f4c"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 64)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=16e56f4c"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 64)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15858,7 +15750,7 @@ K elegido (silhouette + criterio operativo): 2 clusters
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=77c4f994"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 65)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=77c4f994"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 65)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16004,7 +15896,7 @@ K elegido (silhouette + criterio operativo): 2 clusters
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=90953a01"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 66)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=90953a01"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 66)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16116,7 +16008,7 @@ K elegido (silhouette + criterio operativo): 2 clusters
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b3889a62"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 67)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b3889a62"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 67)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16235,7 +16127,7 @@ K elegido (silhouette + criterio operativo): 2 clusters
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5cfac379"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 68)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5cfac379"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 68)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16458,7 +16350,7 @@ K elegido (silhouette + criterio operativo): 2 clusters
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0e628eec"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 69)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0e628eec"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 69)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16641,7 +16533,7 @@ CONCLUSION OPERATIVA (escenario BASE 25% efectividad):
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2c2ab9fe"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 70)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2c2ab9fe"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 70)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16920,7 +16812,7 @@ CONCLUSION:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c5cac71f"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 71)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c5cac71f"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 71)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -16992,7 +16884,7 @@ CONCLUSION:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c8cac9c7"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 72)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c8cac9c7"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 72)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -17169,7 +17061,7 @@ CONCLUSION:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cfac9fae"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 73)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cfac9fae"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 73)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -17246,6 +17138,15 @@ CONCLUSION:
 
     <span class="c1"># ── Hoja 8: Análisis costo-beneficio ──</span>
     <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Construir export desde df_cb_est (analisis a nivel estudiante, Rev.3)</span>
+        <span class="n">df_cb_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">'Zona'</span><span class="p">:</span>      <span class="n">df_cb_est</span><span class="p">[</span><span class="s1">'Zona'</span><span class="p">],</span>
+            <span class="s1">'N'</span><span class="p">:</span>         <span class="n">df_cb_est</span><span class="p">[</span><span class="s1">'N_est'</span><span class="p">],</span>
+            <span class="s1">'Costo'</span><span class="p">:</span>     <span class="n">df_cb_est</span><span class="p">[</span><span class="s1">'Costo'</span><span class="p">],</span>
+            <span class="s1">'Beneficio'</span><span class="p">:</span> <span class="n">df_cb_est</span><span class="p">[</span><span class="s1">'Benef_Base'</span><span class="p">],</span>
+            <span class="s1">'ROI'</span><span class="p">:</span>       <span class="n">df_cb_est</span><span class="p">[</span><span class="s1">'ROI_Base'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+            <span class="s1">'Mora_Pct'</span><span class="p">:</span>  <span class="n">df_cb_est</span><span class="p">[</span><span class="s1">'Mora_real_pct'</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+        <span class="p">})</span>
         <span class="n">df_cb_res</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">'8_Costo_Beneficio'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'error'</span><span class="p">:[</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]})</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">'8_Costo_Beneficio'</span><span class="p">)</span>
@@ -17330,7 +17231,7 @@ CONCLUSION:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b3abc6c1"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 74)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b3abc6c1"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 74)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -17578,7 +17479,7 @@ Archivo exportado: scoring_2025_para_cobranza.csv
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=53c745a9"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 75)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=53c745a9"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 75)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -17864,7 +17765,7 @@ Resumen: 9 estables, 1 a monitorear, 4 a recalibrar
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8c725d85"><details class="code-toggle"><summary class="code-toggle-summary">▸ Mostrar código (celda 76)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8c725d85"><details class="code-toggle"><summary class="code-toggle-summary">Mostrar codigo (celda 76)</summary><div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
